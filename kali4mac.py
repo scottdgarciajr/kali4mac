@@ -20,7 +20,7 @@ array11 = ['sudo -u $SUDO_USER brew install acccheck', 'sudo -u $SUDO_USER brew 
 array12 = ['sudo -u $SUDO_USER brew install apktool', 'sudo -u $SUDO_USER brew install dex2jar', 'sudo -u $SUDO_USER brew install python-diStorm3', 'sudo -u $SUDO_USER brew install edb-debugger', 'sudo -u $SUDO_USER brew install jad', 'sudo -u $SUDO_USER brew install javasnoop', 'sudo -u $SUDO_USER brew install JD', 'sudo -u $SUDO_USER brew install OllyDbg', 'sudo -u $SUDO_USER brew install smali', 'sudo -u $SUDO_USER brew install Valgrind', 'sudo -u $SUDO_USER brew install YARA']
 array13 = ['sudo -u $SUDO_USER brew install android-sdk', 'sudo -u $SUDO_USER brew install apktool', 'sudo -u $SUDO_USER brew install arduino', 'sudo -u $SUDO_USER brew install dex2jar', 'sudo -u $SUDO_USER brew install sakis3g', 'sudo -u $SUDO_USER brew install smali']
 array14 = ['sudo -u $SUDO_USER brew install squid3']
-
+arrayTitles = ["Information Gathering", "Vulnerability Analysis", "Wireless Attacks", "Web Applications", "Sniffing & Spoofing", "Maintaining Access", "Reporting Tools", "Exploitation Tools", "Forensics Tools", "Stress Testing", "Password Attacks", "Reverse Engineering", "Hardware Hacking", "Extra"]
 
 
 
@@ -87,16 +87,16 @@ def printArray(tools):
 
     # Print the 2D array
     for row in tool_array:
+        row = ['' if item is None else str(item) for item in row] # replace None with empty string
         print("".join(row))
         
 
-def disp1():
-    print("\033[1;36m=+[ Information Gathering\033[1;m\n")
-    printArray(array1)
-    print("\n0) Install all Information Gathering tools")   
+def dispCategory(tool_list, category):
+    print(f"\033[1;36m=+[ {category.capitalize()}\033[1;m\n")
+    printArray(tool_list)
+    print("\n0) Install all tools")   
 
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    print()
+    print ("\033[1;32mInsert the number of the tool to install it.\n\033[1;m")
     choice = input("\033[1;36mkali4mac > \033[1;m")
     
     if choice == "back":
@@ -104,282 +104,11 @@ def disp1():
     elif choice == "gohome":
         disp()
     elif choice == "0":
-        runCommands(array1)
-    elif int(choice) >= 0 and int(choice) <= len(array1):
-        runCommand(array1, int(choice))
-
-
-
-
-
-def disp2():
-    print ("\033[1;36m=+[ Vulnerability Analysis\033[1;m")
-
-    printArray(array2)
-    
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array2)
-    elif int(choice) >= 0 and int(choice) <= len(array2):
-        runCommand(array2, int(choice))
-
-
-
-
-
-
-def disp3():
-    print("\033[1;36m=+[ Wireless Attacks\033[1;m\n")
-    printArray(array3)
-    print("\n0) Install all Wireless Attack tools")   
-
-    
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array3)
-    elif int(choice) >= 0 and int(choice) <= len(array3):
-        runCommand(array3, int(choice))
-
-
-
-
-
-def disp4():
-    print("\033[1;36m=+[ Web Application\033[1;m\n")
-    printArray(array4)
-    print("\n0) Install all Web Application tools")   
-
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array4)
-    elif int(choice) >= 0 and int(choice) <= len(array4):
-        runCommand(array4, int(choice))
-
-
-
-
-def disp5():
-    print("\033[1;36m=+[ Sniffing & Spoofing\033[1;m\n")
-    printArray(array5)
-    print("\n0) Install all Sniffing & Spoofing")   
-
-						
-    
-    						
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array5)
-    elif int(choice) >= 0 and int(choice) <= len(array5):
-        runCommand(array5, int(choice))
-
-
-
-
-
-
-
-def disp6():
-    print("\033[1;36m=+[ Sniffing & Spoofing\033[1;m\n")
-    printArray(array6)
-    print("\n0) Install all Sniffing & Spoofing") 
-
-    				
-    
-    
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array6)
-    elif int(choice) >= 0 and int(choice) <= len(array6):
-        runCommand(array6, int(choice))
-
-def disp7():
-    print("\033[1;36m=+[ Reporting Tools\033[1;m\n")
-    printArray(array7)
-    print("\n0) Install all Reporting Tools") 
-    					
-    						
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array7)
-    elif int(choice) >= 0 and int(choice) <= len(array7):
-        runCommand(array7, int(choice))
-
-
-def disp8():
-    print("\033[1;36m=+[ Exploitation Tools\033[1;m\n")
-    printArray(array8)
-    print("\n0) Install all Exploitation Tools") 
-    				
-     						
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array8)
-    elif int(choice) >= 0 and int(choice) <= len(array8):
-        runCommand(array8, int(choice))
-
-def disp9():
-    print("\033[1;36m=+[ Forensics Tools\033[1;m\n")
-    printArray(array9)
-    print("\n0) Install all Forensics Tools") 
-    				
-    						
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array9)
-    elif int(choice) >= 0 and int(choice) <= len(array9):
-        runCommand(array9, int(choice))
-
-def disp10():
-    print("\033[1;36m=+[ Stress Testing\033[1;m\n")
-    printArray(array5)
-    print("\n0) Install all Stress Testing") 
-    		
-    						
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array10)
-    elif int(choice) >= 0 and int(choice) <= len(array10):
-        runCommand(array10, int(choice))
-
-def disp11():
-    print("\033[1;36m=+[ Password Attacks\033[1;m\n")
-    printArray(array11)
-    print("\n0) Install all Password Attacks") 
-						
-    				
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array11)
-    elif int(choice) >= 0 and int(choice) <= len(array11):
-        runCommand(array11, int(choice))
-
-def disp12():
-    print("\033[1;36m=+[ Reverse Engineering\033[1;m\n")
-    printArray(array12)
-    print("\n0) Install all Reverse Engineering") 
-						
-    				
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array12)
-    elif int(choice) >= 0 and int(choice) <= len(array12):
-        runCommand(array12, int(choice))
-
-def disp13():
-    print("\033[1;36m=+[ Hardware Hacking\033[1;m\n")
-    printArray(array13)
-    print("\n0) Install all hardware hacking") 
-    				
-    						
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array13)
-    elif int(choice) >= 0 and int(choice) <= len(array13):
-        runCommand(array13, int(choice))
-
-def disp14():
-    print("\033[1;36m=+[ Extra\033[1;m\n")
-    printArray(array14)
-    print("\n0) Install all Extra") 
-    				
-    						
-    print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-    
-    choice = input("\033[1;36mkali4mac > \033[1;m")
-    
-    if choice == "back":
-        showCategories()
-    elif choice == "gohome":
-        disp()
-    elif choice == "0":
-        runCommands(array14)
-    elif int(choice) >= 0 and int(choice) <= len(array14):
-        runCommand(array14, int(choice))
-
+        runCommands(tool_list)
+    elif int(choice) >= 1 and int(choice) <= len(tool_list):
+        runCommand(tool_list, int(choice))
+    else:
+        print("Invalid tool number")
 
 
 							
@@ -405,24 +134,6 @@ def installAll():
             print("Array", i, "not found")
         
 def showCategories():
-    categories = {
-        "1": disp1,
-        "2": disp2,
-        "3": disp3,
-        "4": disp4,
-        "5": disp5,
-        "6": disp6,
-        "7": disp7,
-        "8": disp8,
-        "9": disp9,
-        "10": disp10,
-        "11": disp11,
-        "12": disp12,
-        "13": disp13,
-        "14": disp14,
-        "0": installAll
-    }
-
     print('''
 \033[1;36m**************************** All Categories *****************************\033[1;m
 
@@ -441,9 +152,10 @@ def showCategories():
 
     choice1 = input("\033[1;36mkali4mac > \033[1;m")
     if choice1 == "back" or choice1 == "gohome":
-        disp1()
+        disp()
     else:
-        disp_func = categories.get(choice1)
+        array = globals()["array" + str(choice1)] # get the array based on user input
+        disp_func = dispCategory(array, "arrayTitles[int(choice1)-1]")
         if disp_func:
             disp_func()
         else:
